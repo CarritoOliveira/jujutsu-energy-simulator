@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Simulador de Energia Amaldiçoada</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <video autoplay muted loop playsinline id="videoFundo">
+        <source src="sukuna-gojo-final.mp4" type="video/mp4">
+    </video>
+
+    <h1>🔥 Simulador de Energia Amaldiçoada 🔥</h1>
+
+    <div class="energia">
+        Energia Amaldiçoada:
+        <span id="energia">4000</span> /
+        <span id="energiaMax">4000</span>
+    </div>
+
+    <!-- STATUS -->
+    <div class="status-container">
+        <div class="status">
+            Output Geral:
+            <span id="outputDisplay">100</span>%
+        </div>
+
+        <div class="status">
+            Eficiência RCT:
+            <span id="rctDisplay">100</span>%
+        </div>
+
+        <div class="status">
+            Estado:
+            <span id="flowDisplay">Normal</span>
+        </div>
+    </div>
+
+    <!-- HP -->
+    <div class="hpContainer">
+        <strong>HP:</strong>
+        <span id="hpDisplay">100</span>%
+
+        <div class="barraHP">
+            <div id="barraProgressoHP"></div>
+        </div>
+    </div>
+
+    <!-- BOTÕES -->
+    <div class="botoes">
+
+        <!-- COMBATE -->
+        <button onclick="ataqueBasico()" class="btnAtaque">
+            👊 Ataque Básico (-1)
+        </button>
+
+        <button onclick="defender()" class="btnDefesa">
+            🛡️ Defender
+        </button>
+
+        <!-- TÉCNICAS -->
+        <button onclick="usarHabilidade('desmantelar')">
+            Desmantelar (-50)
+        </button>
+
+        <button
+            id="btnCorteMundo"
+            onmousedown="iniciarCorteMundo()"
+            onmouseup="cancelarCorteMundo()"
+            onmouseleave="cancelarCorteMundo()"
+        >
+            ⚔️ Corte que Corta o Mundo
+        </button>
+
+        <button onclick="usarHabilidade('cleavar')">
+            Cleaver (-100)
+        </button>
+
+        <button onclick="usarHabilidade('blackFlash')">
+            Black Flash
+        </button>
+
+        <button onclick="usarHabilidade('kaminoFuga')">
+            Kamino Fuga
+        </button>
+
+        <button onclick="usarHabilidade('expansaoDominio')">
+            🌌 Expansão de Domínio
+        </button>
+
+        <button onclick="usarRCT()">
+            🩹 Usar RCT (Cura)
+        </button>
+
+        <!-- LIBERAÇÃO -->
+        <button onclick="liberarTecnicaInata()" id="btnLiberar">
+            🔥 Liberação Máxima
+        </button>
+
+        <button
+            onclick="reprimirTecnicaInata()"
+            id="btnReprimir"
+            style="display:none;"
+        >
+            🔒 Reprimir
+        </button>
+
+        <!-- DANOS -->
+        <button onclick="receberDano(8)" style="background:#b30000;">
+            Dano Leve (-8%)
+        </button>
+
+        <button onclick="receberDano(18)" style="background:#b30000;">
+            Dano Médio (-18%)
+        </button>
+
+        <button onclick="receberDano(35)" style="background:#8B0000;">
+            Dano Grave (-35%)
+        </button>
+
+        <button onclick="receberDano(55)" style="background:#8B0000;">
+            Dano Crítico (-55%)
+        </button>
+
+        <!-- UTILIDADES -->
+        <button onclick="resetarTudo()">
+            🔄 Resetar Tudo
+        </button>
+
+        <button onclick="limparLog()">
+            🧹 Limpar Log
+        </button>
+    </div>
+
+    <!-- LOGS -->
+    <div class="containerLogs">
+
+        <div id="logs" class="logPrincipal"></div>
+
+        <div id="cooldownsLog" class="logCooldowns">
+            <p>Nenhum cooldown ativo.</p>
+        </div>
+
+    </div>
+
+    <!-- FORNALHA -->
+    <div class="fornalhaContainer">
+
+        🔥 Fornalha:
+        <span id="fornalhaPercent">0%</span>
+
+        <div class="barraFornalha">
+            <div id="barraProgressoFornalha"></div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
