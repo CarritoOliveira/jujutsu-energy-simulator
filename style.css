@@ -1,0 +1,231 @@
+/* ================= VÍDEO DE FUNDO ================= */
+#videoFundo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+/* ================= BODY ================= */
+body {
+    font-family: 'Orbitron', Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    color: #eee;
+    text-align: center;
+    position: relative;
+    z-index: 0;
+}
+
+/* Overlay escuro */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    z-index: -1;
+}
+
+/* ================= TÍTULO ================= */
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    color: #ff2a2a;
+    text-shadow:
+        0 0 5px #ff0000,
+        0 0 10px #ff0000,
+        0 0 20px #ff0000,
+        0 0 40px rgba(255, 0, 0, 0.8);
+
+    margin-bottom: 25px;
+}
+
+/* ================= ENERGIA ================= */
+.energia {
+    font-size: 1.5rem;
+    margin: 20px auto;
+    background: rgba(40, 0, 60, 0.6);
+    padding: 12px 25px;
+    border-radius: 12px;
+    display: inline-block;
+    border: 2px solid #aa00ff;
+    box-shadow: 0 0 15px rgba(170, 0, 255, 0.5);
+}
+
+/* ================= STATUS ================= */
+.status-container {
+    margin: 20px auto;
+    max-width: 1000px;
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    flex-wrap: wrap;
+}
+
+.status {
+    background: rgba(40, 0, 60, 0.75);
+    padding: 12px 25px;
+    border-radius: 12px;
+    border: 2px solid #aa00ff;
+    font-size: 1.1rem;
+    min-width: 210px;
+}
+
+/* ================= HP ================= */
+.hpContainer {
+    margin: 20px auto;
+    max-width: 700px;
+    font-size: 1.3rem;
+}
+
+.hpContainer strong {
+    color: #ff4444;
+}
+
+.barraHP {
+    width: 100%;
+    height: 28px;
+    background: #1a1a1a;
+    margin-top: 8px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid #ff4444;
+    box-shadow: 0 0 12px rgba(255, 68, 68, 0.4);
+}
+
+#barraProgressoHP {
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(
+        90deg,
+        #ff0000,
+        #ff8800,
+        #ffff00
+    );
+
+    transition: width 0.4s ease;
+}
+
+/* ================= BOTÕES ================= */
+.botoes {
+    margin: 20px auto;
+    max-width: 1000px;
+}
+
+button {
+    background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+    color: #fff;
+    border: 1px solid #555;
+    padding: 10px 18px;
+    margin: 6px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+}
+
+button:hover {
+    background: linear-gradient(145deg, #3a003f, #1f0022);
+    box-shadow: 0 0 12px rgba(170, 0, 255, 0.7);
+    transform: translateY(-2px);
+}
+
+/* ================= ATAQUE E DEFESA ================= */
+.btnAtaque {
+    border: 2px solid #ff4444;
+    box-shadow: 0 0 12px rgba(255, 0, 0, 0.5);
+}
+
+.btnAtaque:hover {
+    background: linear-gradient(145deg, #550000, #220000);
+    box-shadow: 0 0 18px rgba(255, 0, 0, 0.9);
+}
+
+.btnDefesa {
+    border: 2px solid #00aaff;
+    box-shadow: 0 0 12px rgba(0, 170, 255, 0.5);
+}
+
+.btnDefesa:hover {
+    background: linear-gradient(145deg, #001f33, #000d16);
+    box-shadow: 0 0 18px rgba(0, 170, 255, 0.9);
+}
+
+/* ================= LOGS ================= */
+.containerLogs {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 25px;
+}
+
+.logPrincipal,
+.logCooldowns {
+    background: rgba(20, 20, 20, 0.9);
+    padding: 15px;
+    border-radius: 12px;
+    width: 320px;
+    height: 240px;
+    overflow-y: auto;
+    text-align: left;
+    border: 1px solid #333;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+}
+
+.logCooldowns {
+    border: 2px solid #6a00ff;
+    box-shadow: 0 0 15px rgba(106, 0, 255, 0.5);
+}
+
+/* ================= FORNALHA ================= */
+.fornalhaContainer {
+    margin-top: 30px;
+    font-size: 1.1rem;
+}
+
+.barraFornalha {
+    width: 600px;
+    height: 22px;
+    background: #1a1a1a;
+    margin: 12px auto;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid #444;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+}
+
+#barraProgressoFornalha {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(
+        90deg,
+        #ff0000,
+        #ff6600,
+        #ff0000
+    );
+
+    background-size: 200% 100%;
+    animation: fogoAnimado 2s linear infinite;
+    transition: width 0.3s ease;
+}
+
+@keyframes fogoAnimado {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 200% 0%; }
+}
+
+/* ================= SCROLL ================= */
+.logPrincipal::-webkit-scrollbar,
+.logCooldowns::-webkit-scrollbar {
+    width: 6px;
+}
+
+.logPrincipal::-webkit-scrollbar-thumb,
+.logCooldowns::-webkit-scrollbar-thumb {
+    background: #6a00ff;
+    border-radius: 4px;
+}
